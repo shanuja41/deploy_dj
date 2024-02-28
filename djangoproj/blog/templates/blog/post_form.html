@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!-- Include Bootstrap CSS from Bootswatch -->
+    <link href="https://bootswatch.com/5/litera/bootstrap.min.css" rel="stylesheet">
+    <br><br><br><br>
+
+    <div class="select2-container--classic" style="width:400px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">New Post</legend>
+                {{ form }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Already have an account? <a href="{% url 'blog-home' %}">Go Back</a></small>
+        </div>
+    </div>
+{% endblock content %}

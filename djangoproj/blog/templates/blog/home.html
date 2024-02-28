@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+{% block content %}
+ <!-- Include Bootstrap CSS from Bootswatch -->
+    <link href="https://bootswatch.com/5/litera/bootstrap.min.css" rel="stylesheet">
+<br><br><br>
+
+    {% for posts in posts %}
+        <article class="media content-section">
+            <img class=" rounded-circle article-img" src="{{ posts.author.profile.image.url }}" alt="">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ posts.author }}</a>
+                    <small class="text-muted">{{ posts.data_posted }}</small>
+                </div>
+                <h2><a class="article-title" >{{ posts.title }}</a></h2>
+                <p class="article-content">{{ posts.content }}</p>
+            </div>
+            <br>
+        </article>
+    {% endfor %}
+<br>
+{% endblock content%}
